@@ -42,11 +42,11 @@ from plain_train_net import do_train
 from ewc import EWC
 from util import build_ewc_idk,returnmap,update_idknetwork
 
-sourcedir = '/grogu/user/jianrenw/data/OAK_FRAME_N/Raw' 
-annodir = '/grogu/user/jianrenw/data/OAK_LABEL_N'
-curdir = '/grogu/user/jianrenw/baseline/release/ewc/idk'
-res_dir = '/grogu/user/jianrenw/baseline/release/baseline_res'
-config_fp = '/grogu/user/jianrenw/baseline/release/faster_rcnn_R_50_C4.yaml'
+sourcedir = '/media/data5/users/huymx/OAK Data/OAK_FRAME/Raw' 
+annodir = '/media/data5/users/huymx/OAK Data/OAK_LABEL'
+curdir = './'
+res_dir = '/media/data5/users/huymx/OAK Data/OAK_results'
+config_fp = '../otherfile/faster_rcnn_R_50_C4.yaml'
 steps_name = sorted(os.listdir(sourcedir))
 
 
