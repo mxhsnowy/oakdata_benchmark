@@ -39,8 +39,8 @@ from rcnn import EWCRCNN
 
 from detectron2.modeling.roi_heads.roi_heads import build_roi_heads
 
-cat_fp = '/grogu/user/jianrenw/baseline/release/mapping.json'
-pretrained_fp = '/grogu/user/jianrenw/baseline/release/model_final_b1acc2.pkl'
+cat_fp = '../otherfile/mapping.json'
+pretrained_fp = '/media/data5/users/huymx/OAK Data/oakdata_benchmark/model_final_b1acc2.pkl'
 loading_fp = ''
 
 def returnmap():
