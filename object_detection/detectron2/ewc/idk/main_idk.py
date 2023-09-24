@@ -289,11 +289,13 @@ if __name__ == '__main__':
     parser.add_argument('--iteration', default=10)
     parser.add_argument('--checkpoint', default=0)
     parser.add_argument('--importance', default=1000)
+    parser.add_argument('--n_gpus', default=1)
     args = parser.parse_args()
     launch(
         main,
         8,
         num_machines=1,
+        num_gpus_per_machine=args.n_gpus,
         machine_rank=args.machine_rank,
         dist_url=args.dist_url,
         args=(args,),
