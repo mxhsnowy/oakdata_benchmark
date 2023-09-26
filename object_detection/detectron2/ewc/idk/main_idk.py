@@ -50,14 +50,19 @@ config_fp = '../otherfile/faster_rcnn_R_50_C4.yaml'
 steps_name = sorted(os.listdir(sourcedir))
 
 
-def get_data_dicts(files_name, data_map):
+def get_data_dicts(files_name, data_map, sizeRatio=0.5):
+    # TODO: Reduce image size to half   
     dataset_dicts = []
     for file_name in files_name:
         step_name, json_name = file_name.split('#')[0], file_name.split('#')[1]
         img_path = osp.join( sourcedir,step_name, json_name[:-5] + '.jpg')
 
-        im = cv2.imread(img_path)
+        im = cv2.imread(img_path), 
         height, width = im.shape[:2]
+        newHeight, newWidth = int(sizeRatio*height), int(sizeRatio*width)
+        im = cv2.resize(im, (newWidth, newHeight))
+        height = newHeight
+        width = newWidth
         record = {}
         record["file_name"] = img_path
         record["image_id"] = file_name
@@ -74,12 +79,16 @@ def get_data_dicts(files_name, data_map):
             box2d = label['box2d']
 
             if category in limitset.keys():
+                x1 = int(box2d['x1']*sizeRatio)
+                y1 = int(box2d['y1']*sizeRatio)
+                x2 = int(box2d['x2']*sizeRatio)
+                y2 = int(box2d['y2']*sizeRatio)
                 obj = {
-                    "bbox": [box2d['x1'], box2d['y1'], box2d['x2'], box2d['y2']],
+                    "bbox": [x1, y1, x2, y2],
                     "bbox_mode": BoxMode.XYXY_ABS,
                     "category_id": data_map[ limitset[category] ],
                     }
-                if box2d['x1'] != box2d['x2'] and box2d['y1'] != box2d['y2']:
+                if x1 != x2 and y1 != y2:
                     objs.append(obj)
         
         if len(objs) != 0:
