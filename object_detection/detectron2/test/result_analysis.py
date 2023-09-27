@@ -8,14 +8,17 @@ import copy
 import numpy as np
 
 from eval import voc_eval
+from project_variables import TESTING_FRAMES_DIR, LABELS_DIR, LABELS_FOL, FRCNN_CFG_FILE,\
+                                MAPPING_FILE, RESULTS_DIR, INTER_FILE
+j = osp.join
 
-sourcedir = '/grogu/user/jianrenw/data/OAK_LABEL_N' 
-annodir = '/grogu/user/jianrenw/data/OAK_TEST/Label'
+sourcedir = LABELS_DIR
+annodir = j(TESTING_FRAMES_DIR, LABELS_FOL)
 
-config_fp = '/grogu/user/jianrenw/baseline/release/faster_rcnn_R_50_C4.yaml'
-cat_fp = '/grogu/user/jianrenw/baseline/release/mapping.json'
-saved_dir = '/grogu/user/jianrenw/baseline/release/baseline_res'
-inter_p = ''
+config_fp = FRCNN_CFG_FILE
+cat_fp = MAPPING_FILE
+saved_dir = RESULTS_DIR
+inter_p = INTER_FILE
 
 
 # data format
