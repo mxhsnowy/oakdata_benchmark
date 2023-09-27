@@ -18,7 +18,7 @@ annodir = j(TESTING_FRAMES_DIR, LABELS_FOL)
 config_fp = FRCNN_CFG_FILE
 cat_fp = MAPPING_FILE
 saved_dir = RESULTS_DIR
-inter_p = INTER_FILE
+inter_p = ''
 
 
 # data format
@@ -113,7 +113,7 @@ limitset = returnmap()
 inf_path = osp.join(saved_dir,'inf/total_inf.json')
 ini_inf_path = osp.join(saved_dir,'ini_inf.pkl')
 
-inter = json.load(open('/grogu/user/jianrenw/baseline/code/inter.json','r'))
+inter = json.load(open(INTER_FILE,'r'))
 method = 'idk'
 total_inf = json.load(open(inf_path,'rb'))
 total_ini = pickle.load(open(ini_inf_path,'rb'))
