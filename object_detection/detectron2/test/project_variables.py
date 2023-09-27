@@ -1,0 +1,6 @@
+TRAINING_FRAMES_DIR = '/media/data5/users/huymx/OAK Data/OAK_FRAME'
+TESTING_FRAMES_DIR = '/media/data5/users/huymx/OAK Data/OAK_TEST'
+TESTING_VIDEOS_DIR = '/media/data5/users/huymx/OAK Data/OAK_VIDEO'
+LABELS_DIR = '/media/data5/users/huymx/OAK Data/OAK_LABEL'
+LABELS_FOL = 'Label'
+IMAGES_FOL = 'Raw'
