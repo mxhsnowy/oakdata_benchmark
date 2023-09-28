@@ -38,7 +38,6 @@ from rcnn import ICarl2RCNN
 from roi_head import build_icarl2_heads
 import json
 
-
 cat_fp = '/grogu/user/jianrenw/baseline/release/mapping.json'
 pretrained_fp = '/grogu/user/jianrenw/baseline/release/model_final_b1acc2.pkl'
 loading_fp = ''
