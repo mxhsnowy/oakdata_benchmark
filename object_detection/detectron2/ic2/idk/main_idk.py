@@ -40,13 +40,14 @@ from detectron2.config import get_cfg
 
 from plain_train_net import do_train
 from util import build_icarl2_idk,returnmap,update_idknetwork
-
-
-sourcedir = '/grogu/user/jianrenw/data/OAK_FRAME_N/Raw'
-annodir = '/grogu/user/jianrenw/data/OAK_LABEL_N'
-curdir = '/grogu/user/jianrenw/baseline/release/ic2/idk'
-res_dir = '/grogu/user/jianrenw/baseline/release/baseline_res'
-config_fp = '/grogu/user/jianrenw/baseline/release/faster_rcnn_R_50_C4.yaml'
+from project_variables import TRAINING_FRAMES_DIR, LABELS_DIR, LABELS_FOL, \
+                                FRCNN_CFG_FILE, RESULTS_DIR, IMAGES_FOL                               
+j = osp.join
+sourcedir = j(TRAINING_FRAMES_DIR, IMAGES_FOL)
+annodir = j(TRAINING_FRAMES_DIR, LABELS_FOL)
+curdir = './'
+res_dir = RESULTS_DIR
+config_fp = FRCNN_CFG_FILE
 steps_name = sorted(os.listdir(sourcedir))
 
 num_pc = 5

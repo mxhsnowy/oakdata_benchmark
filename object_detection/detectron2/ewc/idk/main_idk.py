@@ -112,6 +112,7 @@ def calclass(files_name, train_map, limitset):
     return train_map
   
 def save_file(count,model,lr,iteration,batch_size,img_memory,train_map,tt,it,bt):
+    # Saving with the format: method_situation/models and method_situation/stats
     saved_dir =  osp.join(res_dir,'ewc_idk_' + str(lr) + '_' + str(iteration) + '_' + str(batch_size) + '_' + str(tt) + '_' + str(it) + '_' + str(bt))
     if not osp.isdir( saved_dir ):
         os.makedirs(saved_dir,exist_ok=True)

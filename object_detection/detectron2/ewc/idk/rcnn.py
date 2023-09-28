@@ -83,6 +83,7 @@ class EWCRCNN(nn.Module):
             self.pixel_mean.shape == self.pixel_std.shape
         ), f"{self.pixel_mean} and {self.pixel_std} have different shapes!"
 
+
     @classmethod
     def from_config(cls, cfg):
         backbone = build_backbone(cfg)
@@ -98,6 +99,7 @@ class EWCRCNN(nn.Module):
             "pixel_std": cfg.MODEL.PIXEL_STD,
         }
 
+    # One way to use property, get the device of the EWCRCNN by the pixel_mean device
     @property
     def device(self):
         return self.pixel_mean.device
